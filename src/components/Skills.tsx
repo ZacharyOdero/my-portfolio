@@ -1,6 +1,6 @@
 
-import React from 'react';
-import { Code, Github, Linkedin } from 'lucide-react';
+import React, { useEffect, useRef } from 'react';
+import { Code, Github } from 'lucide-react';
 
 interface Skill {
   name: string;
@@ -39,11 +39,38 @@ const skillData: Skill[] = [
 ];
 
 const Skills = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    
+    const skillElements = document.querySelectorAll('.skill-item');
+    skillElements.forEach((el) => observer.observe(el));
+    
+    return () => {
+      skillElements.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
+  
   return (
-    <section id="skills" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+    <section id="skills" className="py-20 relative overflow-hidden" ref={sectionRef}>
+      {/* Animated background elements */}
+      <div className="absolute inset-0 bg-white z-0">
+        <div className="absolute bottom-0 left-0 w-2/3 h-2/3 bg-gradient-to-tr from-theme-blue/5 to-theme-blue/0 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
-          <div className="flex flex-col gap-2 mb-12 text-center">
+          <div className="flex flex-col gap-2 mb-12 text-center opacity-0 animate-fade-up" style={{ animationDelay: '0.1s' }}>
             <p className="text-sm uppercase tracking-wider text-theme-blue font-medium">My Toolkit</p>
             <h2 className="heading-lg">Skills & Technologies</h2>
           </div>
@@ -64,22 +91,22 @@ const SkillCard = ({ skill, index }: { skill: Skill, index: number }) => {
   
   return (
     <div 
-      className="flex flex-col items-center p-6 text-center animate-fade-in opacity-0"
-      style={{ animationDelay: `${0.1 * index}s`, animationFillMode: 'forwards' }}
+      className="flex flex-col items-center p-6 text-center skill-item opacity-0 translate-y-10 transition-all duration-700 ease-out hover:scale-105"
+      style={{ transitionDelay: `${0.1 * index}s` }}
     >
       <div 
-        className="w-16 h-16 mb-4 flex items-center justify-center rounded-full" 
+        className="w-16 h-16 mb-4 flex items-center justify-center rounded-full bg-gray-50 border border-gray-100 shadow-sm"
         style={{ color: skill.color || 'currentColor' }}
       >
         <Icon />
       </div>
-      <h3 className="text-lg font-medium mb-2">{skill.name}</h3>
+      <h3 className="text-lg font-medium mb-3">{skill.name}</h3>
       <div className="flex gap-1">
         {[...Array(5)].map((_, i) => (
           <div 
             key={i} 
-            className={`w-2 h-2 rounded-full ${
-              i < skill.level ? "bg-theme-blue" : "bg-gray-200"
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              i < skill.level ? "bg-theme-blue scale-100" : "bg-gray-200 scale-75"
             }`}
           />
         ))}
