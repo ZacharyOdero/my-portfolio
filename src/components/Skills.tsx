@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
-import { Code, Github } from 'lucide-react';
+import { Github } from 'lucide-react';
 
 interface Skill {
   name: string;
@@ -62,17 +62,23 @@ const Skills = () => {
   }, []);
   
   return (
-    <section id="skills" className="py-20 relative overflow-hidden" ref={sectionRef}>
+    <section id="skills" className="py-20 relative overflow-hidden bg-[#0a1224]" ref={sectionRef}>
       {/* Animated background elements */}
-      <div className="absolute inset-0 bg-white z-0">
-        <div className="absolute bottom-0 left-0 w-2/3 h-2/3 bg-gradient-to-tr from-theme-blue/5 to-theme-blue/0 rounded-full blur-3xl"></div>
+      <div className="absolute inset-0 cyber-grid z-0">
+        {/* Animated blur circles */}
+        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-blue-700/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-72 h-72 bg-purple-700/20 rounded-full blur-3xl"></div>
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-col gap-2 mb-12 text-center opacity-0 animate-fade-up" style={{ animationDelay: '0.1s' }}>
-            <p className="text-sm uppercase tracking-wider text-theme-blue font-medium">My Toolkit</p>
-            <h2 className="heading-lg">Skills & Technologies</h2>
+            <div className="flex items-center justify-center gap-2">
+              <span className="h-1 w-12 bg-blue-500 rounded-full"></span>
+              <p className="text-sm uppercase tracking-wider text-blue-400 font-medium">My Toolkit</p>
+              <span className="h-1 w-12 bg-blue-500 rounded-full"></span>
+            </div>
+            <h2 className="heading-lg text-gradient">Skills & Technologies</h2>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
@@ -95,19 +101,23 @@ const SkillCard = ({ skill, index }: { skill: Skill, index: number }) => {
       style={{ transitionDelay: `${0.1 * index}s` }}
     >
       <div 
-        className="w-16 h-16 mb-4 flex items-center justify-center rounded-full bg-gray-50 border border-gray-100 shadow-sm"
-        style={{ color: skill.color || 'currentColor' }}
+        className="w-16 h-16 mb-4 flex items-center justify-center rounded-full 
+        bg-gradient-to-br from-blue-900/50 to-slate-900/80 backdrop-blur-sm border 
+        border-blue-500/30 shadow-lg shadow-blue-900/20 hover:shadow-blue-500/30
+        transition-all duration-300 hover:-translate-y-1"
+        style={{ color: skill.color || '#38bdf8' }}
       >
         <Icon />
       </div>
-      <h3 className="text-lg font-medium mb-3">{skill.name}</h3>
+      <h3 className="text-lg font-medium mb-3 text-blue-100">{skill.name}</h3>
       <div className="flex gap-1">
         {[...Array(5)].map((_, i) => (
           <div 
             key={i} 
             className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              i < skill.level ? "bg-theme-blue scale-100" : "bg-gray-200 scale-75"
+              i < skill.level ? "bg-blue-400 scale-100 animate-pulse" : "bg-blue-900/50 scale-75"
             }`}
+            style={{ animationDuration: `${1 + i * 0.3}s` }}
           />
         ))}
       </div>

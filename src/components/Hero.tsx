@@ -4,54 +4,72 @@ import { ArrowDownRight } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section id="hero" className="pt-24 min-h-screen flex items-center relative overflow-hidden">
+    <section id="hero" className="pt-24 min-h-screen flex items-center relative overflow-hidden bg-animate">
       {/* Animated background elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white to-gray-50 z-0">
-        <div className="absolute top-0 left-0 w-full h-full bg-grid-pattern opacity-[0.03]"></div>
+      <div className="absolute inset-0 cyber-grid z-0">
+        {/* Blur circles */}
+        <div className="blur-circle blur-circle-1"></div>
+        <div className="blur-circle blur-circle-2"></div>
+        
+        {/* Star field background */}
+        <div className="starfield absolute inset-0"></div>
       </div>
       
-      {/* Animated floating shapes */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-        <div className="floating-shape bg-theme-blue/5 rounded-full w-96 h-96 absolute -top-20 -right-20"></div>
-        <div className="floating-shape-delay bg-theme-blue/5 rounded-full w-64 h-64 absolute bottom-10 left-10"></div>
-        <div className="floating-shape-slow bg-theme-lightBlue/5 rounded-full w-80 h-80 absolute top-1/2 -left-40"></div>
-      </div>
+      {/* Loading bars at the top and bottom */}
+      <div className="absolute top-0 left-0 w-full h-1 loading-bars"></div>
+      <div className="absolute bottom-0 left-0 w-full h-1 loading-bars"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center md:text-left">
-          <h1 
-            className="heading-xl animate-fade-in opacity-0 [animation-delay:0.2s] [animation-fill-mode:forwards]"
-            style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}
+          <div 
+            className="inline-block px-4 py-1 rounded-full bg-blue-900/30 backdrop-blur-sm border border-blue-700/30 mb-6 animate-fade-up"
+            style={{ animationDelay: '0.1s' }}
           >
-            <span className="block font-light text-gray-600 mb-2">Hello, I'm</span>
-            <span className="text-gradient">Zachary Odero</span>
+            <span className="text-blue-400 text-sm">Welcome to my portfolio</span>
+          </div>
+          
+          <h1 
+            className="heading-xl animate-fade-up"
+            style={{ animationDelay: '0.3s' }}
+          >
+            <span className="block font-light text-blue-300 mb-2">Hello, I'm</span>
+            <span className="text-gradient glow">Zachary Odero</span>
           </h1>
           
           <h2 
-            className="text-xl md:text-2xl text-theme-blue mt-4 mb-8 animate-fade-in opacity-0 [animation-delay:0.4s] [animation-fill-mode:forwards]"
-            style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}
+            className="text-xl md:text-2xl text-blue-300 mt-4 mb-8 animate-fade-up"
+            style={{ animationDelay: '0.5s' }}
           >
             Web Developer | Code with Purpose
           </h2>
           
-          <div 
-            className="animate-fade-in opacity-0 [animation-delay:0.6s] [animation-fill-mode:forwards]"
-            style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}
+          <p 
+            className="text-blue-200 max-w-xl mx-auto md:mx-0 mb-8 animate-fade-up"
+            style={{ animationDelay: '0.7s' }}
           >
-            <a href="#projects" className="btn-primary group">
+            I'm a passionate web developer at the beginning of my journey in tech. With a keen eye for clean, 
+            efficient code and intuitive design, I focus on creating websites and applications that are both 
+            functional and visually appealing.
+          </p>
+          
+          <div 
+            className="animate-fade-up"
+            style={{ animationDelay: '0.9s' }}
+          >
+            <a href="#projects" className="btn-primary group shine">
               View My Work 
               <ArrowDownRight size={18} className="transition-all duration-300 group-hover:translate-x-1 group-hover:translate-y-1" />
             </a>
           </div>
           
           <div 
-            className="absolute bottom-16 left-0 right-0 flex justify-center animate-fade-in opacity-0 [animation-delay:1s] [animation-fill-mode:forwards] hidden md:flex"
-            style={{ animationDelay: '1s', animationFillMode: 'forwards' }}
+            className="absolute bottom-16 left-0 right-0 flex justify-center animate-fade-up hidden md:flex"
+            style={{ animationDelay: '1.2s' }}
           >
             <div className="animate-bounce">
               <ArrowDownRight 
                 size={24} 
-                className="text-theme-blue transform rotate-45" 
+                className="text-blue-400 transform rotate-45" 
               />
             </div>
           </div>
