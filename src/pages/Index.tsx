@@ -61,8 +61,8 @@ const Index = () => {
       <Contact />
       <Footer />
       
-      {/* Cursor trailer effect */}
-      <div id="cursor-trailer" className="fixed w-10 h-10 rounded-full pointer-events-none z-50 opacity-0 bg-blue-500 mix-blend-screen blur-xl" />
+      {/* Cursor trailer effect - simplified */}
+      <div id="cursor-trailer" className="fixed w-8 h-8 rounded-full pointer-events-none z-50 opacity-0 bg-blue-500 mix-blend-screen" />
     </div>
   );
 };

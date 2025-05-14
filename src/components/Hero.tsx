@@ -4,13 +4,9 @@ import { ArrowDownRight } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section id="hero" className="pt-24 min-h-screen flex items-center relative overflow-hidden bg-animate">
-      {/* Animated background elements */}
+    <section id="hero" className="pt-24 min-h-screen flex items-center relative overflow-hidden bg-[#050a14]">
+      {/* Simple grid background instead of blur circles */}
       <div className="absolute inset-0 cyber-grid z-0">
-        {/* Blur circles */}
-        <div className="blur-circle blur-circle-1"></div>
-        <div className="blur-circle blur-circle-2"></div>
-        
         {/* Star field background */}
         <div className="starfield absolute inset-0"></div>
       </div>
@@ -20,9 +16,9 @@ const Hero = () => {
       <div className="absolute bottom-0 left-0 w-full h-1 loading-bars"></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-3xl mx-auto text-center md:text-left">
+        <div className="w-full md:max-w-3xl mx-auto md:mx-0">
           <div 
-            className="inline-block px-4 py-1 rounded-full bg-blue-900/30 backdrop-blur-sm border border-blue-700/30 mb-6 animate-fade-up"
+            className="inline-block px-4 py-1 rounded-full bg-blue-900/30 border border-blue-700/30 mb-6 animate-fade-up"
             style={{ animationDelay: '0.1s' }}
           >
             <span className="text-blue-400 text-sm">Welcome to my portfolio</span>
@@ -33,7 +29,7 @@ const Hero = () => {
             style={{ animationDelay: '0.3s' }}
           >
             <span className="block font-light text-blue-300 mb-2">Hello, I'm</span>
-            <span className="text-gradient glow">Zachary Odero</span>
+            <span className="text-gradient">Zachary Odero</span>
           </h1>
           
           <h2 
@@ -44,7 +40,7 @@ const Hero = () => {
           </h2>
           
           <p 
-            className="text-blue-200 max-w-xl mx-auto md:mx-0 mb-8 animate-fade-up"
+            className="text-blue-200 max-w-xl mb-8 animate-fade-up"
             style={{ animationDelay: '0.7s' }}
           >
             I'm a passionate web developer at the beginning of my journey in tech. With a keen eye for clean, 
@@ -56,7 +52,7 @@ const Hero = () => {
             className="animate-fade-up"
             style={{ animationDelay: '0.9s' }}
           >
-            <a href="#projects" className="btn-primary group shine">
+            <a href="#projects" className="btn-primary group">
               View My Work 
               <ArrowDownRight size={18} className="transition-all duration-300 group-hover:translate-x-1 group-hover:translate-y-1" />
             </a>

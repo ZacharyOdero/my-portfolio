@@ -73,7 +73,7 @@ body {
   transition-delay: 0.5s;
 }
 
-/* Animated backgrounds */
+/* Animated backgrounds - simplified */
 .animated-bg {
   position: relative;
   overflow: hidden;
@@ -86,7 +86,7 @@ body {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, rgba(30, 41, 59, 0.1) 50%, transparent 70%);
+  background: linear-gradient(to right, rgba(59, 130, 246, 0.05), rgba(30, 41, 59, 0.05));
   animation: rotate 20s linear infinite;
   z-index: -1;
 }
@@ -113,8 +113,8 @@ body {
   width: 100%;
   height: 100%;
   background-image: 
-    linear-gradient(to right, rgba(59, 130, 246, 0.1) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+    linear-gradient(to right, rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
   background-size: 20px 20px;
   z-index: -1;
 }
@@ -139,36 +139,12 @@ body {
   100% { transform: translate(0, 0px); }
 }
 
-/* Floating shapes with different delays */
-.floating-shape {
-  animation: floating 6s ease-in-out infinite;
-}
-
-.floating-shape-delay {
-  animation: floating 7s ease-in-out infinite;
-  animation-delay: 1s;
-}
-
-.floating-shape-slow {
-  animation: floating 9s ease-in-out infinite;
-  animation-delay: 2s;
-}
-
-/* Glowing effect */
+/* Glow effect - simplified */
 .glow {
-  animation: glow 2s ease-in-out infinite alternate;
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
 }
 
-@keyframes glow {
-  from {
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #38bdf8, 0 0 20px #38bdf8;
-  }
-  to {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #38bdf8, 0 0 40px #38bdf8;
-  }
-}
-
-/* Shine effect for cards */
+/* Shine effect for cards - simplified */
 .shine {
   position: relative;
   overflow: hidden;
@@ -184,7 +160,7 @@ body {
   background: linear-gradient(
     to right,
     rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.05) 50%,
     rgba(255, 255, 255, 0) 100%
   );
   transform: rotate(30deg);
@@ -200,7 +176,7 @@ body {
   }
 }
 
-/* Star field background */
+/* Star field background - simplified */
 .starfield {
   position: relative;
   z-index: 0;
@@ -216,7 +192,7 @@ body {
   background-image: radial-gradient(circle, #ffffff 1px, transparent 1px);
   background-size: 50px 50px;
   z-index: -1;
-  opacity: 0.3;
+  opacity: 0.2;
 }
 
 /* Loading bars - cool horizontal animated lines */
@@ -269,43 +245,7 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* Blurred circles animation */
-.blur-circles {
-  position: relative;
-  overflow: hidden;
-}
-
-.blur-circle {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(40px);
-  z-index: -1;
-  opacity: 0.5;
-}
-
-.blur-circle-1 {
-  width: 300px;
-  height: 300px;
-  background-color: rgba(59, 130, 246, 0.3);
-  top: -100px;
-  left: -100px;
-  animation: move-circle 20s infinite alternate ease-in-out;
-}
-
-.blur-circle-2 {
-  width: 250px;
-  height: 250px;
-  background-color: rgba(139, 92, 246, 0.3);
-  bottom: -50px;
-  right: -50px;
-  animation: move-circle 15s infinite alternate-reverse ease-in-out;
-}
-
-@keyframes move-circle {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(50px, 50px); }
-}
-
+/* Fade up animation */
 .animate-fade-up {
   animation: fade-up 0.6s ease-out forwards;
   opacity: 0;
@@ -322,7 +262,7 @@ body {
   }
 }
 
-/* Cybernetic grid lines */
+/* Cybernetic grid lines - simplified */
 .cyber-grid {
   position: relative;
   z-index: 0;

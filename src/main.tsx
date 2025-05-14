@@ -24,7 +24,7 @@ const setupIntersectionObserver = () => {
   }, 100);
 };
 
-// Function to create cursor trailer effect
+// Function to create simplified cursor trailer effect
 const setupCursorTrailer = () => {
   const trailer = document.getElementById('cursor-trailer');
   if (!trailer) return;
@@ -32,11 +32,9 @@ const setupCursorTrailer = () => {
   window.addEventListener('mousemove', (e) => {
     const { clientX, clientY } = e;
     
-    // Add smooth animation with delay
-    setTimeout(() => {
-      trailer.style.opacity = '0.7';
-      trailer.style.transform = `translate(${clientX - 20}px, ${clientY - 20}px)`;
-    }, 100);
+    // Add simple animation without delay
+    trailer.style.opacity = '0.5';
+    trailer.style.transform = `translate(${clientX - 16}px, ${clientY - 16}px)`;
   });
   
   // Hide trailer when cursor is not moving
@@ -45,7 +43,7 @@ const setupCursorTrailer = () => {
     clearTimeout(timeout);
     timeout = setTimeout(() => {
       trailer.style.opacity = '0';
-    }, 1500);
+    }, 1000);
   });
 };
 
